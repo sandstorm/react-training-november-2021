@@ -24,16 +24,38 @@ type Props = {
 
 const TodoList = (props: Props) => {
     const [todos, setTodos] = useState<Array<Todo>>([])
+    const [isCompletedFilterActive, setIsCompletedFilterActive] = useState(false)
+    const [titleFilter, setTitleFilter] = useState('')
 
     useEffect(() => {
         fetchTodos(props.url).then(setTodos)
     }, [props.url, setTodos])
 
+    const handleIsCompletedFilterChange = () => setIsCompletedFilterActive(!isCompletedFilterActive)
+
+    const handleTitleFilterChange: React.ChangeEventHandler<HTMLInputElement> = (event) => {
+        setTitleFilter(event.target.value)
+    }
+
+    const filteredTodosByCompleted = isCompletedFilterActive
+        ? todos.filter(todo => todo.completed === false)
+        : todos
+
+    const filteredTodosByTitle = titleFilter.length > 0
+        ? filteredTodosByCompleted.filter(todo => todo.title.includes(titleFilter))
+        : filteredTodosByCompleted
+
     return (
         <div>
             <h2>TodoList</h2>
+            
+            <input type="text" value={titleFilter} onChange={handleTitleFilterChange} placeholder="search" />
+            
+            <input id="filterCompleted" type="checkbox" checked={isCompletedFilterActive} onChange={handleIsCompletedFilterChange} />
+            <label htmlFor="filterCompleted">hide completed todos</label>
+            
             <ul>
-                {todos.map(todo => <TodoListItem key={todo.id} completed={todo.completed} title={todo.title} />)}
+                {filteredTodosByTitle.map(todo => <TodoListItem key={todo.id} completed={todo.completed} title={todo.title} />)}
             </ul>
         </div>
     )

@@ -1,0 +1,7 @@
+.accordeon__title {
+    cursor: pointer;
+}
+
+.accordeon__title:hover {
+    background-color: lightblue;
+}
