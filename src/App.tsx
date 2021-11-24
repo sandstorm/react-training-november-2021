@@ -1,24 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import ComponentWithFragment from './aufgabe1/ComponentWithFragment';
+import List from './aufgabe1/List';
+
+const listOfStrings = [
+  {
+    id: 'two',
+    content: 'two',
+  },
+  {
+    id: 'one',
+    content: 'one',
+  },
+  {
+    id: 'three',
+    content: 'three',
+  },
+  {
+    id: 'four',
+    content: 'four',
+  },
+  {
+    id: 'five',
+    content: 'five',
+  }
+]
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ComponentWithFragment title={'MyTitle'} />
+      <hr />
+      <List items={listOfStrings} />
     </div>
   );
 }
