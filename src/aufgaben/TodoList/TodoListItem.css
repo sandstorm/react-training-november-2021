@@ -1,0 +1,7 @@
+.todo-list-item > * + * {
+    margin-left: 8px;
+}
+
+.todo-list-item + .todo-list-item {
+    margin-top: 8px;
+}

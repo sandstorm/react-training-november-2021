@@ -6,6 +6,7 @@ import ComponentWithFragment from './aufgaben/ComponentWithFragment';
 import Counter from './aufgaben/Counter';
 import CounterWithCustomHook from './aufgaben/CounterWithCustomHook';
 import List from './aufgaben/List';
+import TodoList from './aufgaben/TodoList/TodoList';
 
 const listOfStrings = [
   {
@@ -33,12 +34,12 @@ const listOfStrings = [
 function App() {
   return (
     <div className="App">
-      <h2>Aufgabe 1</h2>
+      <h2>Aufgabe 1: Props, JSX-Comments, Fragments, Listen-Rendering</h2>
       <ComponentWithFragment title={'MyTitle'} />
       <hr />
       <List items={listOfStrings} />
       <hr />
-      <h2>Aufgabe 2</h2>
+      <h2>Aufgabe 2: Children as Props</h2>
        <ComponentWithChildren>
         <p>Children1</p>
         <p>Children2</p>
@@ -48,11 +49,13 @@ function App() {
       <h2>Zusatz: Accordeon</h2>
       <Accordeon />
       <hr />
-      <h2>Aufgabe 3</h2>
+      <h2>Aufgabe 3: useState() Counter</h2>
       <Counter step={10} />
       <hr />
-      <h2>Aufgabe 4</h2>
+      <h2>Aufgabe 4: custom Hook() Counter</h2>
       <CounterWithCustomHook step={10} />
+      <h2>Aufgabe 5: TodoList: useEffect() & API calls</h2>
+      <TodoList url="https://jsonplaceholder.typicode.com/todos" />
     </div>
   );
 }
