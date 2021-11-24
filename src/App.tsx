@@ -1,4 +1,5 @@
 import React from 'react';
+import ComponentWithChildren from './aufgabe1/ComponentWithChildren';
 // import './App.css';
 import ComponentWithFragment from './aufgabe1/ComponentWithFragment';
 import List from './aufgabe1/List';
@@ -32,6 +33,12 @@ function App() {
       <ComponentWithFragment title={'MyTitle'} />
       <hr />
       <List items={listOfStrings} />
+      <hr />
+       <ComponentWithChildren>
+        <p>Children1</p>
+        <p>Children2</p>
+        <p>Children3</p>
+      </ComponentWithChildren>
     </div>
   );
 }
