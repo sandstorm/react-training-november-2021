@@ -1,12 +1,17 @@
 import React from 'react';
-import Accordeon from './aufgaben/Accordeon/Accordeon';
 import ComponentWithChildren from './aufgaben/ComponentWithChildren';
-// import './App.css';
 import ComponentWithFragment from './aufgaben/ComponentWithFragment';
 import Counter from './aufgaben/Counter';
 import CounterWithCustomHook from './aufgaben/CounterWithCustomHook';
 import List from './aufgaben/List';
 import TodoList from './aufgaben/TodoList/TodoList';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+} from "react-router-dom";
+import './App.css';
 
 const listOfStrings = [
   {
@@ -33,32 +38,71 @@ const listOfStrings = [
 
 function App() {
   return (
-    <div className="App">
-      <Accordeon title="Aufgabe 1: Props, JSX-Comments, Fragments, Listen-Rendering">
-        <ComponentWithFragment title={'MyTitle'} />
-        <List items={listOfStrings} />
-      </Accordeon>
+    <div className="app">
+      <BrowserRouter>
 
-      <Accordeon title="Aufgabe 2: Children as Props">
-        <ComponentWithChildren>
-          <p>Children1</p>
-          <p>Children2</p>
-          <p>Children3</p>
-        </ComponentWithChildren>
-      </Accordeon>
+        <aside>
+          <nav>
+            <ul>
+              <li><Link to="/aufgabe1">Aufgabe 1: Props, JSX-Comments, Fragments, Listen-Rendering</Link></li>
+              <li><Link to="/aufgabe2">Aufgabe 2: Children as Props</Link></li>
+              <li><Link to="/aufgabe3">Aufgabe 3: useState() Counter</Link></li>
+              <li><Link to="/aufgabe4">Aufgabe 4: custom Hook() Counter</Link></li>
+              <li><Link to="/aufgabe5">Aufgabe 5 & 6: TodoList: useEffect(), API calls & Controlled Inputs</Link></li>
+            </ul>
+          </nav>
+        </aside>
 
-      <Accordeon title="Aufgabe 3: useState() Counter">
-        <Counter step={10} />
-      </Accordeon>
+        <main>
+          <Routes>
+            <Route path="/" element={<p>Select an exercise from the nav on the left.</p>} />
+            
+            <Route
+              path="/aufgabe1" 
+              element={
+                <>
+                  <ComponentWithFragment title={'MyTitle'} />
+                  <List items={listOfStrings} />
+                </>
+              } 
+            />
 
-      <Accordeon title="Aufgabe 4: custom Hook() Counter">
-        <CounterWithCustomHook step={10} />
-      </Accordeon>
+            <Route
+              path="/aufgabe2"
+              element={
+                  <ComponentWithChildren>
+                    <p>Children1</p>
+                    <p>
+                      Children2</p>
+                    <p>Children3</p>
+                  </ComponentWithChildren>
+              }
+            />
 
-      <Accordeon title="Aufgabe 5 & 6: TodoList: useEffect(), API calls & Controlled Inputs">
-        <TodoList url="https://jsonplaceholder.typicode.com/todos" />
-      </Accordeon>
+            <Route
+              path="/aufgabe3"
+              element={
+                  <Counter step={10} />
+              }
+            />
 
+            <Route
+              path="/aufgabe4"
+              element={
+                  <CounterWithCustomHook step={10} />
+              }
+            />
+
+            <Route
+              path="/aufgabe5"
+              element={
+                  <TodoList url="https://jsonplaceholder.typicode.com/todos" />
+              }
+            />
+
+          </Routes>
+        </main>
+      </BrowserRouter>
     </div>
   );
 }

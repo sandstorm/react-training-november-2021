@@ -1,4 +1,5 @@
 import { memo, useEffect, useState } from "react"
+import Accordeon from "../Accordeon/Accordeon"
 import TodoListItem from "./TodoListItem"
 
 type Todo = {
@@ -49,10 +50,12 @@ const TodoList = (props: Props) => {
         <div>
             <h2>TodoList</h2>
             
-            <input type="text" value={titleFilter} onChange={handleTitleFilterChange} placeholder="search" />
+            <Accordeon title="Filters">
+                <input type="text" value={titleFilter} onChange={handleTitleFilterChange} placeholder="search" />
             
-            <input id="filterCompleted" type="checkbox" checked={isCompletedFilterActive} onChange={handleIsCompletedFilterChange} />
-            <label htmlFor="filterCompleted">hide completed todos</label>
+                <input id="filterCompleted" type="checkbox" checked={isCompletedFilterActive} onChange={handleIsCompletedFilterChange} />
+                <label htmlFor="filterCompleted">hide completed todos</label>
+            </Accordeon>
             
             <ul>
                 {filteredTodosByTitle.map(todo => <TodoListItem key={todo.id} completed={todo.completed} title={todo.title} />)}

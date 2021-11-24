@@ -13,7 +13,7 @@ const Accordeon: FC<Props> = (props) => {
 
     return (
         <div className="accordeon">
-            <h2 className="accordeon__title" onClick={handleClick}>{props.title}</h2>
+            <h3 className="accordeon__title" onClick={handleClick}>{isExpanded ? '-' : '+'} {props.title}</h3>
             {/* if isExpanded == true (truthy) then everything after the "&&" is evaluated (rendered) */}
             {isExpanded && props.children}
         </div>
