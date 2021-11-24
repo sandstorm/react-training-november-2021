@@ -1,4 +1,5 @@
 import React from 'react';
+import Accordeon from './aufgaben/Accordeon';
 import ComponentWithChildren from './aufgaben/ComponentWithChildren';
 // import './App.css';
 import ComponentWithFragment from './aufgaben/ComponentWithFragment';
@@ -39,6 +40,8 @@ function App() {
         <p>Children2</p>
         <p>Children3</p>
       </ComponentWithChildren>
+      <hr />
+      <Accordeon />
     </div>
   );
 }
