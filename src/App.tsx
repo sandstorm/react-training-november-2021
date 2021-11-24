@@ -1,8 +1,8 @@
 import React from 'react';
-import ComponentWithChildren from './aufgabe1/ComponentWithChildren';
+import ComponentWithChildren from './aufgaben/ComponentWithChildren';
 // import './App.css';
-import ComponentWithFragment from './aufgabe1/ComponentWithFragment';
-import List from './aufgabe1/List';
+import ComponentWithFragment from './aufgaben/ComponentWithFragment';
+import List from './aufgaben/List';
 
 const listOfStrings = [
   {
