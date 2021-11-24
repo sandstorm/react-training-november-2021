@@ -1,3 +1,5 @@
+import React from "react"
+
 type ListProps = {
     items: Array<{ id: string, content: string}>
 }
@@ -9,4 +11,4 @@ const List = (props: ListProps) => (
     </ul>
 )
 
-export default List
+export default React.memo(List)
