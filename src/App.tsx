@@ -3,6 +3,7 @@ import Accordeon from './aufgaben/Accordeon';
 import ComponentWithChildren from './aufgaben/ComponentWithChildren';
 // import './App.css';
 import ComponentWithFragment from './aufgaben/ComponentWithFragment';
+import Counter from './aufgaben/Counter';
 import List from './aufgaben/List';
 
 const listOfStrings = [
@@ -42,6 +43,8 @@ function App() {
       </ComponentWithChildren>
       <hr />
       <Accordeon />
+      <hr />
+      <Counter step={10} />
     </div>
   );
 }

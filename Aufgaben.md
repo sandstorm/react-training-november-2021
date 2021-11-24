@@ -7,3 +7,9 @@
 
 ## 2. Children as Props
 1. Erstelle eine Komponente welche beliebige React-Nodes als Children erhalten kann und binde diese in deine `App.tsx` ein. Versuche ein `any`-Typing deiner Props zu vermeiden :)
+
+## 3. useState() Counter
+1. Erstelle eine neue Komponente `Counter.tsx` bestehende aus einem `<p>`-Tag zur Anzeige des Counters, sowie zwei `<button>`-tags.
+2. Binde diese Komponente in deine `App.tsx` ein.
+3. Nutze `useState()` um dem Counter ein State zu geben und lies dieses in deinem `<p>`-Tag aus. (Initiales State nicht vergessen)
+4. Sorge dafür, dass die Click-handler deiner Buttons deinen Counter erhöhen bzw. verringern
